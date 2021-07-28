@@ -1,5 +1,5 @@
 import classes from './Cart.module.css'
-
+import Modal from '../UI/Modal'
 const Cart = props =>{
     const cartItems = [{
         id: 'c1',
@@ -10,10 +10,19 @@ const Cart = props =>{
         <li>{item.name}</li>
     ))
     return (
-        <div>
-            <div></div>
-            <div></div>
-        </div>
+        <Modal>
+            {cartItems}
+            <div>
+                <span></span>
+                <span></span>
+            </div>
+            <div className={classes.action}>
+                <button className={classes['button--alt']} onclick={props.onClose}>
+                    Close
+                    </button>
+                <button className={classes.button}>Order</button>
+            </div>
+        </Modal>
     )
 }
 export default Cart
